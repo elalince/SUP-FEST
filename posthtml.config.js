@@ -1,0 +1,5 @@
+export default {
+  plugins: {
+    "posthtml-include": { root: "./src/components" }
+  }
+};

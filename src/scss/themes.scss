@@ -1,0 +1,206 @@
+html[data-theme="1xbet"] {
+        
+    background: #021A35;
+    --main-color: #38F;
+    --second-color: #00D4FF;
+
+    .btn  { 
+        span {
+        box-shadow: 0 10px 30px -10px rgba(51, 136, 255, 0.40);
+        }
+    }
+
+    .logo--1xbet {
+        display: block;
+    }
+    .logo--melbet {
+        display: none;
+    }
+    .header .lang-switcher__option--selected {
+        background: rgba(51, 136, 255, 0.08);
+    }
+
+    .header .lang-switcher__option--selected:after {
+        background: url(images/check-icon-1xbet.svg) no-repeat center center;
+    }
+
+    .top-block {
+        background: url(images/top-bg.webp) top center no-repeat;
+        background-size: cover;
+
+        &__title--1xbet {
+            display: flex;
+        }
+        &__title--melbet {
+            display: none;
+        }
+    }
+
+    .beam-1 {
+         background: radial-gradient(
+        ellipse at center,
+        rgba(51, 136, 255, 0.8) 0%,
+        rgba(51, 136, 255, 0.6) 20%,
+        rgba(51, 136, 255, 0.4) 40%,
+        rgba(51, 136, 255, 0.2) 60%,
+        transparent 80%
+    );
+    }
+
+    .beam-2 {
+          background: radial-gradient(
+            ellipse at center,
+            rgba(51, 136, 255, 0.6) 0%,
+            rgba(51, 136, 255, 0.4) 20%,
+            rgba(51, 136, 255, 0.3) 40%,
+            rgba(51, 136, 255, 0.1) 60%,
+            transparent 80%
+        );
+    }
+
+    .beam-3 {
+        background: radial-gradient(
+        ellipse at center,
+        rgba(51, 136, 255, 0.4) 0%,
+        rgba(51, 136, 255, 0.3) 15%,
+        rgba(51, 136, 255, 0.2) 30%,
+        rgba(51, 136, 255, 0.1) 50%,
+        transparent 70%
+    );
+    }
+    .beam-4 {
+          background: radial-gradient(
+            ellipse at center,
+            rgba(51, 136, 255, 0.2) 0%,
+            rgba(51, 136, 255, 0.15) 15%,
+            rgba(51, 136, 255, 0.1) 30%,
+            rgba(51, 136, 255, 0.05) 45%,
+            transparent 60%
+        );
+    }
+
+        .features__icon, .security__icon {
+            background: rgba(51, 136, 255, 0.13);
+        }
+    .comparison__td:last-child:before {
+        background: url(images/check-icon-1xbet.svg) no-repeat center center;
+    }
+    .cta__title--melbet {
+        display: none;  
+    }
+    .cta__title--1xbet {
+        display: flex;  
+    }
+
+    .footer--1xbet {
+        display: flex;  
+    }
+
+    .footer--melbet {
+        display: none;      
+    }
+}
+
+html[data-theme="melbet"] {
+        
+    background: #000;
+    --main-color: #F5C400;
+    --second-color: #F5C400;
+
+    .btn  { 
+        span {
+            box-shadow: 0 10px 30px -10px rgba(255, 152, 0, 0.40);
+        }
+    }
+
+    .logo--1xbet {
+        display: none;
+    }
+    .logo--melbet {
+        display: block;
+    }
+
+    .header .lang-switcher__option--selected {
+        background: rgba(245, 196, 0, 0.08);
+    }
+
+    .header .lang-switcher__option--selected:after {
+        background: url(images/check-icon-melbet.svg) no-repeat center center;
+    }
+
+    .top-block {
+        background: url(images/top-bg-melbet.webp) top center no-repeat;
+        background-size: cover;
+
+        &__title--1xbet {
+            display: none;
+        }
+        &__title--melbet {
+            display: flex;
+        }
+    }
+
+    .beam-1 {
+         background: radial-gradient(
+        ellipse at center,
+        rgba(255, 152, 0, 0.8) 0%,
+        rgba(255, 152, 0, 0.6) 20%,
+        rgba(255, 152, 0, 0.4) 40%,
+        rgba(255, 152, 0, 0.2) 60%,
+        transparent 80%
+    );
+    }
+
+    .beam-2 {
+          background: radial-gradient(
+            ellipse at center,
+            rgba(255, 152, 0, 0.6) 0%,
+            rgba(255, 152, 0, 0.4) 20%,
+            rgba(255, 152, 0, 0.3) 40%,
+            rgba(255, 152, 0, 0.1) 60%,
+            transparent 80%
+        );
+    }
+
+    .beam-3 {
+        background: radial-gradient(
+        ellipse at center,
+        rgba(255, 152, 0, 0.4) 0%,
+        rgba(255, 152, 0, 0.3) 15%,
+        rgba(255, 152, 0, 0.2) 30%,
+        rgba(255, 152, 0, 0.1) 50%,
+        transparent 70%
+    );
+    }
+    .beam-4 {
+            background: radial-gradient(   ellipse at center,
+            rgba(255, 152, 0, 0.8) 0%,
+            rgba(255, 152, 0, 0.6) 15%,
+            rgba(255, 152, 0, 0.4) 30%,
+            rgba(255, 152, 0, 0.2) 45%,
+            transparent 60%
+        );
+    }
+     
+       .features__icon, .security__icon {
+            background: rgba(245, 196, 0, 0.13);
+        }
+
+    .comparison__td:last-child:before {
+        background: url(images/check-icon-melbet.svg) no-repeat center center;
+    }
+    .cta__title--melbet {
+        display: flex;  
+    }
+    .cta__title--1xbet {
+        display: none;  
+    }
+
+    .footer--1xbet {
+        display: none;      
+    }
+
+    .footer--melbet {
+        display: flex;  
+    }
+}
