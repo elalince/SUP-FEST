@@ -20,17 +20,17 @@
       Пожалуйста, внимательно и корректно заполните свои данные, они нужны, чтобы вы быстро получили свой номер участника на старте.
   </div>
   <div class="main-progress">
-    <div class="main-progress__item main-progress__item--active">
-            1
-          </div>
-          <div class="main-progress__item">
-              2
-          </div>
-          <div class="main-progress__item">
-              3
-          </div>
+      <div class="main-progress__item main-progress__item--active">
+        1
+      </div>
+      <div class="main-progress__item">
+          2
+      </div>
+      <div class="main-progress__item">
+          3
+      </div>
   </div>
-  <div class="main-form">
+  <div class="main-form step-1">
     <div class="main-form__wrapper main-width">
     <div class="main-title"><h2>Регистрационные данные</h2></div>
     <form>
@@ -106,6 +106,49 @@
 <div class="main-form__error-message hidden">
        Вы не можете зарегистрироваться. К участию в мероприятии допускаются лица старше 18 лет
     </div>
+  </div>
+  <div class="main-shop step-2">
+     <div class="main-shop__wrapper main-width">
+    <div class="main-title"><h2>Забронируй себе мерчи и сможешь приобрести его на фестивале!</h2></div>
+
+    <div class="shop-list">
+        <div class="shop-item">
+            <input type="checkbox" id="item-1" name="item-1">
+            <img src="/images/shop-item-1.png" alt="Футболка с логотипом фестиваля">
+            <div class="shop-item__content">
+                <h3>Футболка</h3>
+                <div class="shop-item__price">1 500 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="size-1">Размер</label>
+
+                        <div class="dropdown">
+                            <select name="size" id="size-1" class="dropdown__native">
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                            </select>
+
+                            <div class="dropdown__selected">Выберите размер</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-item">
+            <img src="/images/shop-item-2.png" alt="Кепка с вышивкой SUP FEST">
+            <h3>Кепка с вышивкой SUP FEST</h3>
+            <div class="shop-item__price">800 ₽</div>
+        </div>
+        <div class="shop-item">
+            <img src="/images/shop-item-3.png" alt="Сумка-шоппер с принтом фестиваля">
+            <h3>Сумка-шоппер с принтом фестиваля</h3>
+            <div class="shop-item__price">500 ₽</div>
+        </div>
+    </div>
+</div>
   </div>
   <footer>
     <img src="images/shkulev_holding_logo.svg" alt="Shkulev Holding Logo">

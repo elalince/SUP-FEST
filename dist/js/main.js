@@ -128,4 +128,33 @@
     email.addEventListener("input", updateButtonState);
     agreeCheckbox.addEventListener("change", updateButtonState);
   });
+  document.querySelectorAll(".dropdown").forEach((dropdown) => {
+    const select = dropdown.querySelector("select");
+    const selected = dropdown.querySelector(".dropdown__selected");
+    const list = dropdown.querySelector(".dropdown__list");
+    Array.from(select.options).forEach((option) => {
+      if (option.disabled)
+        return;
+      const item = document.createElement("div");
+      item.className = "dropdown__item";
+      item.textContent = option.textContent;
+      item.dataset.value = option.value;
+      item.addEventListener("click", () => {
+        select.value = option.value;
+        selected.textContent = option.textContent;
+        dropdown.classList.remove("dropdown--open");
+      });
+      list.appendChild(item);
+    });
+    selected.addEventListener("click", () => {
+      dropdown.classList.toggle("dropdown--open");
+    });
+  });
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("dropdown--open");
+      }
+    });
+  });
 })();
