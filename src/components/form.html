@@ -1,0 +1,75 @@
+<div class="main-form__wrapper main-width">
+    <div class="main-title"><h2>Регистрационные данные</h2></div>
+    <form>
+        <div class="form-block">
+            <label for="name">Фамилия</label>
+            <input type="text" id="name" name="name" placeholder="Иванов">
+        </div>
+        <div class="form-block">
+            <label for="surname">Имя</label>
+            <input type="text" id="surname" name="surname" placeholder="Иван">
+        </div>
+        <div class="form-block">
+            <label for="patronymic">Отчество</label>
+            <input type="text" id="patronymic" name="patronymic" placeholder="Иванович">
+        </div>
+        <div class="form-block">
+            <label for="birth">Дата рождения</label>
+            <input type="text" id="birth" name="birth" placeholder="01.01.2000">
+        </div>
+        <div class="form-block">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (999) 999-99-99">
+        </div>
+        <div class="form-block">
+            <label for="email">Электронная почта</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com">  
+        </div>
+        <div class="form-block form-block--radio">
+            <span>Есть свой сап?</span>
+            <div class="form-block__radio-wrapper">
+                <div class="form-block__radio">
+                    <input type="radio" id="yes-1" name="yes" value="yes">
+                    <label for="yes-1">Да</label>
+                </div>
+                <div class="form-block__radio">
+                    <input type="radio" id="no-1" name="yes" value="no">
+                    <label for="no-1">Нет</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-block form-block--radio">
+            <span>Участвую с питомцем</span>
+            <div class="form-block__radio-wrapper">
+                <div class="form-block__radio">
+                    <input type="radio" id="yes-2" name="pet" value="yes">
+                    <label for="yes-2">Да</label>
+                </div>
+                <div class="form-block__radio">
+                    <input type="radio" id="no-2" name="pet" value="no">
+                    <label for="no-2">Нет</label>
+                </div>
+            </div>
+        </div>
+         <div class="form-block">
+            <label for="guardian">ФИО Сопровождающего/ Опекуна</label>
+            <input type="text" id="guardian" name="guardian" placeholder="Иванов Иван Иванович">
+        </div>
+            <div class="form-block">
+                <label for="guardian-phone">Телефон Сопровождающего/ Опекуна</label>
+                <input type="tel" id="guardian-phone" name="guardian-phone" placeholder="+7 (999) 999-99-99">   
+            </div>
+            <div class="form-block form-block--agree">
+                <input type="checkbox" id="agree" name="agree">
+                <label for="agree">Я даю свое <a href="">согласие на обработку персональных данных</a> и соглашаюсь с условиями <a href="">Политики ООО «Интернет технологии» в отношении обработки персональных данных</a></label>
+            </div>
+            <button type="submit" class="btn form-button">Следующий шаг 
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.3497 7.50854L5.57632 1.74188C5.51434 1.67939 5.44061 1.62979 5.35937 1.59595C5.27813 1.5621 5.19099 1.54468 5.10299 1.54468C5.01498 1.54468 4.92784 1.5621 4.8466 1.59595C4.76536 1.62979 4.69163 1.67939 4.62965 1.74188C4.50549 1.86678 4.43579 2.03575 4.43579 2.21188C4.43579 2.388 4.50549 2.55697 4.62965 2.68188L9.92965 8.01521L4.62965 13.3152C4.50549 13.4401 4.43579 13.6091 4.43579 13.7852C4.43579 13.9613 4.50549 14.1303 4.62965 14.2552C4.6914 14.3182 4.76503 14.3683 4.84628 14.4026C4.92753 14.437 5.01478 14.4548 5.10299 14.4552C5.19119 14.4548 5.27845 14.437 5.3597 14.4026C5.44095 14.3683 5.51458 14.3182 5.57632 14.2552L11.3497 8.48854C11.4173 8.42611 11.4713 8.35035 11.5083 8.26601C11.5452 8.18168 11.5643 8.09061 11.5643 7.99854C11.5643 7.90647 11.5452 7.8154 11.5083 7.73107C11.4713 7.64674 11.4173 7.57097 11.3497 7.50854Z" fill="white" />
+                    </svg>
+            </button>
+    </form>
+</div>    
+<div class="main-form__error-message hidden">
+       Вы не можете зарегистрироваться. К участию в мероприятии допускаются лица старше 18 лет
+    </div>

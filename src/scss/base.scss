@@ -5,103 +5,6 @@
   outline: none;
 }
 
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-ThinItalic.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-ExtraLight.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-ExtraLightItalic.ttf") format("truetype");
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-SemiBoldItalic.ttf") format("truetype");
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "IBM Plex Sans";
-  src: url("/fonts/IBMPlexSans-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
 
 html {
   height: 100%;
@@ -112,19 +15,22 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1; 
+  color: #37404d;
   position: relative;
   -webkit-text-size-adjust: none;
   margin: 0;
   overflow-x: hidden; 
   scroll-behavior: smooth;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 24px;
 }
 
 a {
@@ -182,71 +88,123 @@ section {
 
 
 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 12px 12px 12px 16px;
+  width: 320px;
+  height: 48px;
+  background: #ff5200;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #fff;
+  gap: 12px;
   position: relative;
   transition: all .3s ease;
 
-  >span {
-      display: flex;
-      height: 56px;
-      padding: 19px 40px;
-      justify-content: center;
-      align-items: center;
-      border-radius: 14px;
-      color: #FFF;
-      text-align: center;
-      font-family: "IBM Plex Sans";
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 28px;
-      z-index: 1;
-      transition: all .3s ease;
-      background: var(--main-color);
+  &:disabled {
+    opacity: 0.48;
+    cursor: not-allowed;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    bottom: -4px;
-    left: -4px;
-    right: -4px;
-    border-radius: 16px;
-    opacity: 0.5;
-    filter: blur(6px);
-    z-index: -1;
-    background: linear-gradient(72deg, var(--main-color) 0%, var(--second-color) 50%, var(--main-color) 100%);
-    transition: all .3s ease;
-  }
-
-   &:hover {
-    > span {
-        transform: translateY(-5px) !important;
-      }
-
-      &:before {
-        top: -8px;
-        bottom: -8px;
-        left: -8px;
-        right: -8px;
-      }
-  }
 }
 
 .main-width {
   width: 100%;
-  max-width: 1280px;
-  padding: 0 24px;
+  max-width: 592px;
+  padding: 0 16px;
   margin: 0 auto;
 } 
 
-.circle {
-  width: 384px;
-  height: 384px;
-  opacity: 0.07;
-  background: var(--main-color);
-  filter: blur(32px);
-  position: absolute;
-  border-radius: 100%;
-  z-index: 0;
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: 24px;
+    line-height: 117%;
+
+    span {
+      color: #ff5200;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 118%;
+  }
+}
+
+
+.main-note {
+    font-size: 15px;
+    line-height: 133%;
+    text-align: center;
+    color: #37404d;
+}
+
+
+.main-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        padding-top: 1px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 82, 0, 0.16);
+        font-size: 17px;
+        font-weight: 700;
+        color: rgba(255, 82, 0, 0.16);
+        position: relative;
+        transition: all .3s ease;
+
+        & + & {
+            margin-left: 48px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -50px;
+                width: 48px;
+                border-top: 2px dashed rgba(255, 82, 0, 0.16);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: -50px;
+                width: 48px;
+                border-top: 2px solid #ff5200;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform .3s ease;
+            }
+
+            &--active, &--done {
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+        &--active {
+            border: 2px solid #ff5200;
+            color: #ff5200;
+        }
+
+        &--done {
+            background: #ff5200 url(images/done.svg) center no-repeat;
+            color: transparent;
+        }
+    }
 }

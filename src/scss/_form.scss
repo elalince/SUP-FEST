@@ -1,0 +1,161 @@
+.main-form {
+     display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+
+        .form-block {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+
+            &--radio {
+                gap: 12px;
+            }
+
+            &--agree {
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+                padding: 4px;
+
+                label a {
+                    color: #ff5200;
+                }
+            }
+
+            &__radio-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            
+                &>div {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    padding: 4px;
+                }
+
+                input {
+                    width: 16px;
+                    height: 16px;
+                    border: 2px solid #ff5200;
+                    border-radius: 50%;
+                    appearance: none;
+                    cursor: pointer;
+                    position: relative;
+                    margin: 0;
+
+                    &:checked {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 8px;
+                            height: 8px;
+                            background-color: #ff5200;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                label {
+                    font-size: 12px;
+                    line-height: 117%;
+                }
+            }
+
+
+            label {
+                font-size: 12px;
+                line-height: 117%;
+            }
+
+            input[type="text"],
+            input[type="date"],
+            input[type="tel"],
+            input[type="email"] {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                height: 48px;
+                padding: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 15px;
+                line-height: 133%;
+                color: #37404d;
+
+                &::placeholder {
+                    color: #ababab;
+                }
+
+                &.input-error {
+                    border-color: #e54545;
+                }
+            }
+
+            input[type="checkbox"] {
+                width: 16px;
+                min-width: 16px;
+                height: 16px;
+                border: 2px solid #ff5200;
+                border-radius: 4px;
+                margin: 0;
+                appearance: none;
+                cursor: pointer;
+                position: relative;
+
+                &:checked {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 8px;
+                        height: 8px;
+                        background: url("data:image/svg+xml;utf8,\
+                        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' fill='none'>\
+                        <path d='M1.00012 4.00012L3.00012 7.00012L7.00012 1.00012' stroke='%23FF5200' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
+                        </svg>") center / contain no-repeat;
+                    }
+                }
+            }
+        }
+
+        .form-error {
+            font-size: 12px;
+            line-height: 117%;
+            color: #e54545;
+        }
+}
+    &__error-message {
+        font-size: 15px;
+        line-height: 133%;
+        text-align: center;
+        color: #e54545;
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+}

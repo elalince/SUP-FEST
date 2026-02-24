@@ -1,332 +1,186 @@
+const items = document.querySelectorAll('.main-progress__item');
+let current = 0;
 
-import { i18n } from './i18n/index.js'
+function nextStep() {
+    if (current < items.length - 1) {
+        items[current].classList.remove('main-progress__item--active');
+        items[current].classList.add('main-progress__item--done');
 
-const favicon = document.querySelector('#favicon');
-
-function updateFavicon() {
-    const theme = document.documentElement.dataset.theme; // или body.dataset.theme
-
-    if (theme === 'melbet') {
-        favicon.href = 'images/favicon-melbet.png';
-    } else {
-        favicon.href = 'images/favicon-1xbet.png';
+        current++;
+        items[current].classList.add('main-progress__item--active');
     }
 }
 
-updateFavicon();
+document.addEventListener('DOMContentLoaded', () => {
 
+  // --------------------
+  // ДАТА РОЖДЕНИЯ
+  // --------------------
+  const birthInput = document.getElementById('birth');
 
-const header = document.querySelector('.header');
-
-document.querySelectorAll('.header a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (!target) return;
-
-        e.preventDefault();
-
-        // плавный скролл
-        target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-
-        // закрыть меню хедера
-        header.classList.remove('header--nav-open');
-    });
-});
-
-const navLink = document.querySelector('.header__nav-link');
-navLink.addEventListener('click', () => {
-    header.classList.toggle('header--nav-open');
-});
-
-const body = document.body
-const switcher = document.getElementById('langSwitcher')
-const currentBtn = switcher.querySelector('.lang-switcher__current')
-const currentLabel = switcher.querySelector('.lang-switcher__label')
-const options = switcher.querySelectorAll('.lang-switcher__option')
-
-const STORAGE_KEY = 'lang'
-
-// init
-const savedLang = localStorage.getItem(STORAGE_KEY) || 'en'
-applyLang(savedLang)
-
-// toggle dropdown
-currentBtn.addEventListener('click', () => {
-  switcher.classList.toggle('lang-switcher--open')
-})
-
-// select language
-options.forEach(option => {
-  option.addEventListener('click', () => {
-    applyLang(option.dataset.lang)
-    switcher.classList.remove('lang-switcher--open')
-  })
-})
-
-// close outside
-document.addEventListener('click', e => {
-  if (!switcher.contains(e.target)) {
-    switcher.classList.remove('lang-switcher--open')
-  }
-})
-
-function applyLang(lang) {
-  const option = [...options].find(o => o.dataset.lang === lang)
-  if (!option) return
-
-  body.setAttribute('data-lang', lang)
-
-  // label
-  currentLabel.textContent = option.dataset.label
-
-  // selected class
-  options.forEach(o => o.classList.remove('lang-switcher__option--selected'))
-  option.classList.add('lang-switcher__option--selected')
-
-  // localStorage
-  localStorage.setItem(STORAGE_KEY, lang)
-    // update i18n module
-    try {
-        i18n.setLanguage(lang)
-    } catch (e) {
-        // ignore if DOM not ready
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // init i18n once DOM is ready
-    try { i18n.init() } catch (e) {}
-  const progressBar = document.getElementById('progressBar');
-  let isScrolling = false;
-  
-  function updateProgressBar() {
-    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    const progress = Math.min((scrolled / windowHeight) * 100, 100);
+  birthInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '').slice(0, 8);
     
-    progressBar.style.width = `${progress}%`;
-    isScrolling = false;
-  }
-  
-  // Оптимизация с помощью requestAnimationFrame
-  window.addEventListener('scroll', function() {
-    if (!isScrolling) {
-      isScrolling = true;
-      requestAnimationFrame(updateProgressBar);
+    if (value.length >= 5) {
+      value = value.replace(/(\d{2})(\d{2})(\d+)/, '$1.$2.$3');
+    } else if (value.length >= 3) {
+      value = value.replace(/(\d{2})(\d+)/, '$1.$2');
+    }
+
+    e.target.value = value;
+  });
+
+
+  // --------------------
+  // ТЕЛЕФОН
+  // --------------------
+  const phoneInput = document.getElementById('phone');
+
+  phoneInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+
+    // убираем первую 7 или 8 если пользователь пытается ввести
+    if (value.startsWith('7')) value = value.slice(1);
+    if (value.startsWith('8')) value = value.slice(1);
+
+    value = value.slice(0, 10);
+
+    let formatted = '+7';
+
+    if (value.length > 0) {
+      formatted += ' (' + value.substring(0, 3);
+    }
+    if (value.length >= 4) {
+      formatted += ') ' + value.substring(3, 6);
+    }
+    if (value.length >= 7) {
+      formatted += '-' + value.substring(6, 8);
+    }
+    if (value.length >= 9) {
+      formatted += '-' + value.substring(8, 10);
+    }
+
+    e.target.value = formatted;
+  });
+
+  // фиксируем +7 при фокусе
+  phoneInput.addEventListener('focus', () => {
+    if (!phoneInput.value) {
+      phoneInput.value = '+7';
     }
   });
-  
-  // Обновляем при изменении размера окна
-  window.addEventListener('resize', updateProgressBar);
-  
-  updateProgressBar();
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Функция для форматирования чисел с разделителями
-    function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    // Функция анимации счетчика
-    function animateCounter(element, target, duration = 1000, suffix = '') {
-        const start = 0;
-        const startTime = performance.now();
-        
-        function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Используем ease-out для более естественной анимации
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (target - start) * easedProgress);
-            
-            // Форматируем число если оно больше 1000
-            const displayValue = target >= 1000 ? formatNumber(current) : current;
-            element.textContent = displayValue + suffix;
-            
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            } else {
-                // В конце анимации устанавливаем точное значение
-                const finalValue = target >= 1000 ? formatNumber(target) : target;
-                element.textContent = finalValue + suffix;
-            }
-        }
-        
-        requestAnimationFrame(update);
-    }
-
-    // Функция для анимации процентов (особый случай)
-    function animatePercent(element, target, duration = 1000) {
-        const start = 0;
-        const startTime = performance.now();
-        
-        function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            const current = Math.floor(start + (target - start) * easedProgress);
-            
-            element.textContent = current + '%';
-            
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            } else {
-                element.textContent = target + '%';
-            }
-        }
-        
-        requestAnimationFrame(update);
-    }
-
-    // Инициализация счетчиков
-    function initCounters() {
-        const digitItems = document.querySelectorAll('.top-block__digits-item');
-        
-        // Ждем немного чтобы страница полностью загрузилась
-        setTimeout(() => {
-            // Первый элемент (30+)
-            const firstElement = digitItems[0].querySelector('div');
-            const firstValue = parseInt(firstElement.getAttribute('data-counter') || '30');
-            animateCounter(firstElement, firstValue, 800, '+');
-            
-            // Второй элемент (0%)
-            const secondElement = digitItems[1].querySelector('div');
-            const secondValue = parseInt(secondElement.getAttribute('data-counter') || '0');
-            animatePercent(secondElement, secondValue, 600);
-            
-            // Третий элемент (5,000,000+)
-            const thirdElement = digitItems[2].querySelector('div');
-            const thirdValue = parseInt(thirdElement.getAttribute('data-counter') || '5000000');
-            animateCounter(thirdElement, thirdValue, 1200, '+');
-        }, 300);
-    }
-
-    // Запускаем анимацию
-    initCounters();
-    
-    // Опционально: перезапуск анимации при появлении в viewport
-    const observerOptions = {
-        threshold: 0.5
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Если нужно перезапускать анимацию при скролле
-                // initCounters();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    const digitsBlock = document.querySelector('.top-block__digits');
-    if (digitsBlock) {
-        observer.observe(digitsBlock);
-    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll(
-        '.instruction__block, .instruction__title'
-    );
 
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.2
-        }
-    );
+  const birth = document.getElementById('birth');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+  const agreeCheckbox = document.getElementById('agree');
+  const agreeBlock = document.querySelector('.form-block--agree');
+  const submitBtn = document.querySelector('.form-button');
+  const errorMessage = document.querySelector('.main-form__error-message');
 
-    animatedElements.forEach(el => observer.observe(el));
-});
+  submitBtn.disabled = true; // по умолчанию выключена
 
-document.addEventListener('DOMContentLoaded', () => {
-    const lists = document.querySelectorAll(
-        '.crypto__list, .security__list, .cta__list'
-    );
+  function showError(input, message) {
+    removeError(input);
 
-    if (!lists.length) return;
+    input.classList.add('input-error');
 
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.3
-        }
-    );
+    const error = document.createElement('div');
+    error.className = 'form-error';
+    error.textContent = message;
 
-    lists.forEach(list => {
-        const items = list.querySelectorAll(
-            '.crypto__item, .security__item, .cta__item'
-        );
+    input.closest('.form-block').appendChild(error);
+    errorMessage.classList.remove('hidden');
+  }
 
-        items.forEach((item, index) => {
-            item.style.setProperty('--i', index);
-        });
+  function removeError(input) {
+    input.classList.remove('input-error');
+    const block = input.closest('.form-block');
+    const oldError = block.querySelector('.form-error');
+    if (oldError) oldError.remove();
+  }
 
-        observer.observe(list);
-    });
-});
+  function isAdult(dateString) {
+    if (!/^\d{2}\.\d{2}\.\d{4}$/.test(dateString)) return false;
 
+    const [day, month, year] = dateString.split('.');
+    const birthDate = new Date(year, month - 1, day);
+    const today = new Date();
 
-document.addEventListener('DOMContentLoaded', () => {
-    const elements = document.querySelectorAll(
-        '.features__top, .features__list, .comparison__top, .comparison__tr, .security__top, .faq__top, .faq__item, .cta__top', 
-    );
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
 
-    if (!elements.length) return;
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
 
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.25
-        }
-    );
+    return age >= 18;
+  }
 
-    elements.forEach(el => observer.observe(el));
-});
+  function validateBirth() {
+    if (!isAdult(birth.value)) {
+      showError(
+        birth,
+        'Вы не можете зарегистрироваться. К участию в мероприятии допускаются лица старше 18 лет.'
+      );
 
-document.addEventListener('DOMContentLoaded', () => {
-    const faqItems = document.querySelectorAll('.faq__item');
+      agreeCheckbox.disabled = true;
+      agreeBlock.style.opacity = '0.5';
 
-    faqItems.forEach(item => {
+      return false;
+    }
 
-        item.addEventListener('click', () => {
-            const isOpen = item.classList.contains('faq__item--open');
-            if (!isOpen) {
-                item.classList.add('faq__item--open');
-            }
+    removeError(birth);
+    agreeCheckbox.disabled = false;
+    agreeBlock.style.opacity = '1';
 
-            else {
-                item.classList.remove('faq__item--open');
-            }
-        });
-    });
+    return true;
+  }
+
+  function validatePhone() {
+    const digits = phone.value.replace(/\D/g, '');
+    if (digits.length !== 11) {
+      showError(phone, 'Введите корректный номер телефона');
+      return false;
+    }
+
+    removeError(phone);
+    return true;
+  }
+
+  function validateEmail() {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email.value)) {
+      showError(email, 'Введите корректный email');
+      return false;
+    }
+
+    removeError(email);
+    return true;
+  }
+
+  // 🔥 Главная функция управления кнопкой
+  function updateButtonState() {
+    const birthValid = validateBirth();
+    const phoneValid = validatePhone();
+    const emailValid = validateEmail();
+    const agreed = agreeCheckbox.checked;
+
+    if (birthValid && phoneValid && emailValid && agreed) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
+
+  // события
+  birth.addEventListener('input', updateButtonState);
+  phone.addEventListener('input', updateButtonState);
+  email.addEventListener('input', updateButtonState);
+  agreeCheckbox.addEventListener('change', updateButtonState);
+
 });
