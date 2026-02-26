@@ -1,13 +1,13 @@
-<div class="main-form__wrapper main-width">
+<div class="main-form__wrapper">
     <div class="main-title"><h2>Регистрационные данные</h2></div>
     <form>
         <div class="form-block">
             <label for="name">Фамилия</label>
-            <input type="text" id="name" name="name" placeholder="Иванов">
+            <input type="text" id="name" name="name" placeholder="Иванов" required>
         </div>
         <div class="form-block">
             <label for="surname">Имя</label>
-            <input type="text" id="surname" name="surname" placeholder="Иван">
+            <input type="text" id="surname" name="surname" placeholder="Иван" required>
         </div>
         <div class="form-block">
             <label for="patronymic">Отчество</label>
@@ -72,4 +72,8 @@
 </div>    
 <div class="main-form__error-message hidden">
        Вы не можете зарегистрироваться. К участию в мероприятии допускаются лица старше 18 лет
-    </div>
+</div>
+<div class="main-form__error-data hidden">
+    <img src="images/alert-triangle.svg">
+    Эти данные уже использовались для регистрации ранее. Пожалуйста, введите другие данные.
+</div>

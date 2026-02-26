@@ -1,26 +1,59 @@
-<div class="main-shop__wrapper main-width">
+<div class="main-shop__wrapper">
     <div class="main-title"><h2>Забронируй себе мерчи и сможешь приобрести его на фестивале!</h2></div>
 
-    <div class="shop-list">
+    <div class="main-shop__list shop-list">
         <div class="shop-item">
-            <input type="checkbox" id="item-1" name="item-1">
-            <img src="/images/shop-item-1.png" alt="Футболка с логотипом фестиваля">
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-1" name="item-1" class="shop-item__choice">
+                <img src="/images/item-1.webp" alt="Футболка">
+                <button class="shop-item__add"></button>
+            </div>
             <div class="shop-item__content">
-                <h3>Футболка</h3>
+                <div class="shop-item__title">Футболка</div>
                 <div class="shop-item__price">1 500 ₽</div>
                 <div class="shop-item__features">
                     <div class="shop-item__feature">
                         <label for="size-1">Размер</label>
-
                         <div class="dropdown">
                             <select name="size" id="size-1" class="dropdown__native">
-                                <option value="s">S</option>
-                                <option value="m">M</option>
-                                <option value="l">L</option>
-                                <option value="xl">XL</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
                             </select>
 
-                            <div class="dropdown__selected">Выберите размер</div>
+                            <div class="dropdown__selected">S</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                    <div class="shop-item__feature">
+                        <label for="color-1">Цвет</label>
+                        <div class="dropdown">
+                            <select name="color" id="color-1" class="dropdown__native">
+                                <option value="Черный">Черный</option>
+                                <option value="Белый">Белый</option>
+                                <option value="Серый">Серый</option>
+                                <option value="Красный">Красный</option>
+                                <option value="Синий">Синий</option>
+                                <option value="Зеленый">Зеленый</option>
+                                <option value="Желтый">Желтый</option>
+                            </select>
+
+                            <div class="dropdown__selected">Серый</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
                             <div class="dropdown__list"></div>
                         </div>
                     </div>
@@ -28,14 +61,204 @@
             </div>
         </div>
         <div class="shop-item">
-            <img src="/images/shop-item-2.png" alt="Кепка с вышивкой SUP FEST">
-            <h3>Кепка с вышивкой SUP FEST</h3>
-            <div class="shop-item__price">800 ₽</div>
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-2" name="item-2" class="shop-item__choice">
+                <img src="/images/item-2.webp" alt="Брелок-обвес">
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Брелок-обвес</div>
+                <div class="shop-item__price">300 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="shop-item">
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-3" name="item-3" class="shop-item__choice">
+                <img src="/images/item-3.webp" alt="Ремувка">
+                <button class="shop-item__add"></button>
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Ремувка</div>
+                <div class="shop-item__price">250 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="color-1">Цвет</label>
+                        <div class="dropdown">
+                            <select name="color" id="color-1" class="dropdown__native">
+                                <option value="Черный">Черный</option>
+                                <option value="Белый">Белый</option>
+                                <option value="Серый">Серый</option>
+                                <option value="Красный">Красный</option>
+                                <option value="Синий">Синий</option>
+                                <option value="Зеленый">Зеленый</option>
+                                <option value="Желтый">Желтый</option>
+                            </select>
+
+                            <div class="dropdown__selected">Серый</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="shop-item">
-            <img src="/images/shop-item-3.png" alt="Сумка-шоппер с принтом фестиваля">
-            <h3>Сумка-шоппер с принтом фестиваля</h3>
-            <div class="shop-item__price">500 ₽</div>
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-4" name="item-4" class="shop-item__choice">
+                <img src="/images/item-4.webp" alt="Шопер">
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Шопер</div>
+                <div class="shop-item__price">800 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="shop-item">
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-5" name="item-5" class="shop-item__choice">
+                <img src="/images/item-5.webp" alt="Брелок с зеркалом">
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Брелок с зеркалом</div>
+                <div class="shop-item__price">400 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-item">
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-6" name="item-6" class="shop-item__choice">
+                <img src="/images/item-6.webp" alt="Водонепроницаемый чехол">
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Водонепроницаемый чехол</div>
+                <div class="shop-item__price">600 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-item">
+            <div class="shop-item__image">
+                <input type="checkbox" id="item-7" name="item-7" class="shop-item__choice">
+                <img src="/images/item-7.webp" alt="Джиббитсы">
+            </div>
+            <div class="shop-item__content">
+                <div class="shop-item__title">Джиббитсы</div>
+                <div class="shop-item__price">200 ₽</div>
+                <div class="shop-item__features">
+                    <div class="shop-item__feature">
+                        <label for="quantity-1">Количество</label>
+                        <div class="dropdown">
+                            <select name="quantity" id="quantity-1" class="dropdown__native">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="dropdown__selected">1</div>
+                            <div class="dropdown__list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-shop__price hidden ">
+        <div class="main-shop__price-title">Общая стоимость:</div>
+        <div class="main-shop__price-value">0 ₽</div>
+    </div>
+
+    <div class="main-shop__note">
+        <img src="images/info.svg">
+        После регистрации забронировать товары будет нельзя
+    </div>
+
+    <div class="main-shop__controls">
+        <button class="btn btn--2 main-shop__prev">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.65041 8.49134L10.4237 14.258C10.4857 14.3205 10.5595 14.3701 10.6407 14.4039C10.7219 14.4378 10.8091 14.4552 10.8971 14.4552C10.9851 14.4552 11.0722 14.4378 11.1535 14.4039C11.2347 14.3701 11.3084 14.3205 11.3704 14.258C11.4946 14.1331 11.5643 13.9641 11.5643 13.788C11.5643 13.6119 11.4946 13.4429 11.3704 13.318L6.07041 7.98468L11.3704 2.68468C11.4946 2.55977 11.5643 2.3908 11.5643 2.21468C11.5643 2.03855 11.4946 1.86959 11.3704 1.74468C11.3087 1.68169 11.235 1.63157 11.1538 1.59724C11.0725 1.56291 10.9853 1.54504 10.8971 1.54468C10.8089 1.54504 10.7216 1.56291 10.6404 1.59724C10.5591 1.63157 10.4855 1.68169 10.4237 1.74468L4.65041 7.51134C4.58274 7.57377 4.52874 7.64954 4.4918 7.73387C4.45486 7.8182 4.43579 7.90928 4.43579 8.00134C4.43579 8.09341 4.45486 8.18448 4.4918 8.26881C4.52874 8.35315 4.58274 8.42891 4.65041 8.49134Z" fill="#222222" />
+</svg>
+Назад</button>
+        <button class="btn btn--2 main-shop__next">Пропустить <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11.3497 7.50854L5.57632 1.74188C5.51434 1.67939 5.44061 1.62979 5.35937 1.59595C5.27813 1.5621 5.19099 1.54468 5.10299 1.54468C5.01498 1.54468 4.92784 1.5621 4.8466 1.59595C4.76536 1.62979 4.69163 1.67939 4.62965 1.74188C4.50549 1.86678 4.43579 2.03575 4.43579 2.21188C4.43579 2.388 4.50549 2.55697 4.62965 2.68188L9.92965 8.01521L4.62965 13.3152C4.50549 13.4401 4.43579 13.6091 4.43579 13.7852C4.43579 13.9613 4.50549 14.1303 4.62965 14.2552C4.6914 14.3182 4.76503 14.3683 4.84628 14.4026C4.92753 14.437 5.01478 14.4548 5.10299 14.4552C5.19119 14.4548 5.27845 14.437 5.3597 14.4026C5.44095 14.3683 5.51458 14.3182 5.57632 14.2552L11.3497 8.48854C11.4173 8.42611 11.4713 8.35035 11.5083 8.26601C11.5452 8.18168 11.5643 8.09061 11.5643 7.99854C11.5643 7.90647 11.5452 7.8154 11.5083 7.73107C11.4713 7.64674 11.4173 7.57097 11.3497 7.50854Z" fill="#222222" />
+</svg></button>
+         <button class="btn btn--1 main-shop__add" disabled>Забронировать мерч
+             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.3497 7.50854L5.57632 1.74188C5.51434 1.67939 5.44061 1.62979 5.35937 1.59595C5.27813 1.5621 5.19099 1.54468 5.10299 1.54468C5.01498 1.54468 4.92784 1.5621 4.8466 1.59595C4.76536 1.62979 4.69163 1.67939 4.62965 1.74188C4.50549 1.86678 4.43579 2.03575 4.43579 2.21188C4.43579 2.388 4.50549 2.55697 4.62965 2.68188L9.92965 8.01521L4.62965 13.3152C4.50549 13.4401 4.43579 13.6091 4.43579 13.7852C4.43579 13.9613 4.50549 14.1303 4.62965 14.2552C4.6914 14.3182 4.76503 14.3683 4.84628 14.4026C4.92753 14.437 5.01478 14.4548 5.10299 14.4552C5.19119 14.4548 5.27845 14.437 5.3597 14.4026C5.44095 14.3683 5.51458 14.3182 5.57632 14.2552L11.3497 8.48854C11.4173 8.42611 11.4713 8.35035 11.5083 8.26601C11.5452 8.18168 11.5643 8.09061 11.5643 7.99854C11.5643 7.90647 11.5452 7.8154 11.5083 7.73107C11.4713 7.64674 11.4173 7.57097 11.3497 7.50854Z" fill="white" />
+                    </svg>
+         </button>
     </div>
 </div>

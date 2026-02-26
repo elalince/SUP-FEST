@@ -3,6 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  <html lang="ru"> 
   <title>Е1 SUP FEST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,25 +15,31 @@
   <div class="main-title">
     <h1>Регистрация на фестиваль <span>«Е1 SUP FEST», г. Екатеринбург</span></h1>
   </div>
-  <div class="main-note main-width">
+  <div class="main-note">
       Пожалуйста, внимательно и корректно заполните свои данные, они нужны, чтобы вы быстро получили свой номер участника на старте.
   </div>
   <div class="main-progress">
-      <div class="main-progress__item main-progress__item--active">
+      <div class="main-progress__item main-progress__item--1 main-progress__item--active">
         1
       </div>
-      <div class="main-progress__item">
+      <div class="main-progress__item main-progress__item--2">
           2
       </div>
-      <div class="main-progress__item">
+      <div class="main-progress__item main-progress__item--3">
           3
       </div>
   </div>
   <div class="main-form step-1">
     <include src="form.html"></include>
   </div>
-  <div class="main-shop step-2">
+  <div class="main-shop step-2" style="display: none;">
      <include src="shop.html"></include>
+  </div>
+   <div class="main-summary step-3" style="display: none;">
+     <include src="summary.html"></include>
+  </div>
+    <div class="main-success step-4" style="display: none;">
+     <include src="success.html"></include>
   </div>
   <include src="footer.html"></include>
   <script type="module" src="/js/main.js"></script>

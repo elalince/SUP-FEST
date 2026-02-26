@@ -1,0 +1,199 @@
+.main-summary {
+    flex: 1;
+    height: 100%; 
+    display: flex;
+    width: 100%;
+     max-width: 960px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 16px;
+        padding: 24px;
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .form-summary {
+        background: rgba(255, 82, 0, 0.16);
+        gap: 24px;
+
+        &__title {
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 118%;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        &__item {
+            display: flex;
+            gap: 4px;
+            font-size: 16px;
+            line-height: 150%;          
+
+            &-title {
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .shop-summary {
+        background: #efefef;
+
+        &__title {
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 118%;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            background: #fff;   
+
+            @media (max-width: 535px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            &-image {
+                border-radius: 12px;
+                width: 75px;
+                min-width: 75px;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                   font-size: 15px;
+                    line-height: 133%;
+            }
+        
+            &-title {
+                    font-weight: 700;
+            }
+
+            &-price {
+                margin-left: auto;
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 133%;
+                padding-right: 12px;
+                white-space: nowrap;
+
+                @media (max-width: 535px) {
+                    margin-left: 0;
+                }
+
+            }
+                 
+        }
+
+        &__total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 118%;
+
+            &-value {
+                margin-left: auto;
+                font-size: 24px;
+                line-height: 117%;
+                color: #ff5200;
+            }
+        }
+
+        &__note {
+            border-top: 1px solid #fff;
+            padding: 16px 0px;
+            font-size: 15px;
+            line-height: 133%;
+            text-align: center;
+        }
+    }
+
+    &__controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        position: relative;
+        margin-top: auto;
+
+
+        .main-summary__back {
+            position: absolute;
+            left: 0;
+
+             @media (max-width: 454px) {
+            font-size: 0;
+            gap: 0;
+            padding: 12px;
+        }
+        }
+
+        
+        .main-summary__submit {
+            margin: auto;
+
+            @media (max-width: 590px) {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__error {
+        width: 100%;
+        max-width: 560px;
+         display: flex;
+         align-items: flex-start;
+         gap: 12px;
+        border: 2px solid #e54545;
+        border-radius: 16px;
+        padding: 16px;
+        font-size: 15px;
+        line-height: 133%;
+
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
